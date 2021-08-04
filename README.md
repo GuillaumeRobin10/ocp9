@@ -20,7 +20,11 @@ afin de connaître les comptes existants vous pouvez vous connecter en tant que 
 l'identifiant du compte superutilisateur est le suivant : `admin` et le mot de passse `admin`.
 
 lorsque vous êtes connecté à la plateforme classique de l'application (`http://127.0.0.1:8000/home`) vous pouvez créer des critiques ou en demander.
+
 Vous pouvez également suivre des utilisateurs afin de voir leurs critiques et leurs tickets.
+
 La page Posts permet de voir vos posts. 
+
 La page Flux permet de voir les tickets des utilisateurs que vous suivez ainsi que les réponses à vos tickets.
+
 Enfin vous pouvez vous déconnecter.
