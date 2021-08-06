@@ -1,0 +1,69 @@
+.name{
+text_align:left;
+border: 1px solid;
+margin-left: 20px;
+padding: 10px;
+grid-column: 1/5;
+}
+
+.button_abo{
+    padding-top: 20px;
+    margin-top:16px;
+    margin-left: 16px;
+    margin-bottom:16px;
+    width:40%;
+    border: 1px black solid;
+    grid-column: 5/6;
+    color: black;
+    text-decoration: none;
+}
+
+a.button_abo:visited{
+    color: black;
+}
+
+a.button_abo:hover{
+    background-color: red;
+}
+a.button_abo:active{
+    color:black;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+}
+
+.name_follower{
+    text_align:left;
+    border: 1px solid;
+    margin-left: 20px;
+    padding: 10px;
+    width: 64%;
+}
+
+input[type=text]{
+  width: 55%;
+  padding: 20px 20px;
+  margin-left: 10%;
+  box-sizing: border-box;
+  border: 2px solid;
+  display: inline-block;
+}
+
+.left{
+float:right;
+position:relative;
+top:-51px;
+right: 28%;
+
+}
+
+h3{
+text-align: center;
+
+}
+
+.lefty{
+margin-left: -135px;
+}

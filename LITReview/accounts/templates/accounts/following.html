@@ -1,0 +1,40 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+<link rel="stylesheet" href="{% static 'accounts/following.css' %}">
+{% endblock %}
+{% block content %}
+<div>
+    <div class=>
+        <h3>Suivre d'autres utilisateur</h3>
+    </div>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            {% for field in formulaire %}
+                <div class="fieldWrapper">
+                    {{ field.errors }}
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <input type="submit" class="btn left" value="Envoyer">
+        </form>
+    </div>
+    <div>
+        <h3>Abonnements</h3>
+        {% for sub in subscriptions %}
+            <div class="wrapper">
+                <p class="name">{{ sub.followed_user }}</p>
+                <a class="btn button_abo" href="{% url 'desabonnement' sub.followed_user.id %}"> Se désabonner</a>
+            </div>
+        {% endfor %}
+    </div>
+    <div>
+        <h3 class="lefty">Abonnés</h3>
+        {% for follower in followers %}
+            <p class="name_follower"> {{ follower.user}}</p>
+        {% endfor %}
+    </div>-
+</div>
+{% endblock %}

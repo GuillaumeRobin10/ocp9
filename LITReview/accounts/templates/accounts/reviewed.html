@@ -1,0 +1,59 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+<link rel="stylesheet" href="{% static 'accounts/styleticket.css' %}">
+<link rel="stylesheet" href="{% static 'accounts/reviewed.css' %}">
+{% endblock %}
+{% block content %}
+<h3> Créer une critique</h3>
+    <form method="POST" class=form>
+        {% csrf_token %}
+            <div class="containerticket">
+                <label class="title "> Vous êtres en train de poster en réponse à</label>
+                <div class="ticketwrapper">
+                    <div>
+                        {{ticket.user}} a demandeé une critique
+                    </div>
+                    <div class="date">
+                        {{ticket.time_created}}
+                    </div>
+                    <div class="titleticket">
+                        {{ ticket.title}}
+                    </div>
+                    <div>
+                        {{ticket.description }}
+                    </div>
+                    <div class ="image">
+                        <img src="{{ticket.image.url}}" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="containercritique">
+                <label class="title "> Critique</label>
+                <div class="fieldWrapper">
+                    {{ formreview.headline.errors }}
+                    <label>Titre</label>
+                    {{ formreview.headline }}
+                </div>
+
+                <div class="fieldWrapper">
+                    {{ formreview.rating.errors }}
+                    <label>Note</label>
+                    {{ formreview.rating }}
+                </div>
+
+                <div class="fieldWrapper">
+                    {{ formreview.body.errors }}
+                    <label>Commentaire</label>
+                    {{ formreview.body }}
+                </div>
+                <input type="submit" class="btn right" value="Envoyer">
+            </div>
+
+
+
+    </form>
+</div>
+{% endblock %}

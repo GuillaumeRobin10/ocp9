@@ -1,0 +1,105 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+<link rel="stylesheet" href="{% static 'accounts/posts.css' %}">
+{% endblock %}
+{% block content %}
+<div>
+    <div class="creationbtn">
+        <a href="ticket"> <button class="btn c">Demander une critique</button></a>
+        <a href="review"> <button class="btn c">crée une critique</button></a>
+    </div>
+<div class="feed">
+    {% for items in aggregate %}
+        {% if items.type == "review" %}
+            <div class="Reviews">
+                    <div class="reviewwrapper">
+                        {% if items.obj.user == request.user %}
+                            <h6> Vous avez fait une critique</h6>
+                        {% else %}
+                            <h6> {{ items.obj.user }} a fait une critique</h6>
+                        {% endif %}
+
+                        <div class="date">
+                            {{items.obj.time_created}}
+                        </div>
+                        <div>
+                            <div class ="headline">
+                                {{items.obj.headline}} -
+                                {% for i in '12345' %}
+                                    {% if forloop.counter <= items.obj.rating %}
+                                        &#9733;
+                                    {% else %}
+                                        &#9734;
+                                    {% endif%}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class ="body">
+                            {{items.obj.body}}
+                        </div>
+                         <div class="ticketlinkedwrapper">
+                            <div class="ticketlinkeduser">
+                                Ticket-
+                                {% if items.obj.ticket.user == request.user %}
+                                    vous
+                                {% else %}
+                                    {{items.obj.ticket.user}}
+                                {% endif %}
+                            </div>
+                            <div class="date">
+                            {{items.obj.ticket.time_created}}
+                        </div>
+                            <div class ="title">
+                            {{items.obj.ticket.title}}
+                        </div>
+                            <div class ="description">
+                            {{items.obj.ticket.description}}
+                        </div>
+                             {% if items.obj.ticket.image %}
+                            <div class ="image">
+                                <img src="{{items.obj.ticket.image.url}}" />
+                            </div>
+                        {% endif %}
+                         </div>
+                </div>
+                </div>
+        {% else %}
+            <div class="tickets">
+                    <div class="ticketwrapper">
+                        {% if items.obj.user == request.user %}
+                            <h6> Vous avez demandé une critique</h6>
+                        {% else %}
+                            <h6> {{ items.obj.user }} a demandé une critique</h6>
+                        {% endif %}
+                        <div class="date">
+                            {{items.obj.time_created}}
+                        </div>
+                        <div class ="title">
+                            {{items.obj.title}}
+                        </div>
+                        <div class ="description">
+                            {{items.obj.description}}
+                        </div>
+                        {% if items.obj.image %}
+                            <div class ="image">
+                                <img src="{{items.obj.image.url}}" />
+                            </div>
+                        {% endif %}
+                        <div class="lesboutons">
+                            {% if items.used %}
+                            {% else %}
+                            <a href="{% url 'reviewed' items.obj.id %}"><button class="btn btnl">Créer un critique</button></a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+
+                </div>
+        {% endif %}
+        {% for item in items %}
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endblock %}

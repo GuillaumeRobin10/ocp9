@@ -1,0 +1,30 @@
+/* formulaire de création de compte*/
+.wrapperinscription{
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+
+.fieldWrapper{
+    padding: 5px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.left{
+margin-left:13em;
+display:inline-block;
+}
+
+.right{
+float:left;
+position:relative;
+top:-51px;
+left:46%;
+display:inline-block;
+}
+
+input[type=text], input[type=password]{
+  width: 30%;
+  box-sizing: border-box;
+}

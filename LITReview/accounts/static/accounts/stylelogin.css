@@ -1,0 +1,37 @@
+/* formulaire de connexion*/
+.btn {
+    display: inline-block;
+    border-radius: 8px;
+    font-size: 15px;
+    padding: 10px;
+    width: auto;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 15em;
+}
+
+.gauche{
+    text-align: center;
+    margin: 5em;
+    grid-column: 1;
+}
+.droite{
+    margin: 2em;
+    grid-column: 2;
+}
+
+form{
+    display: table;
+}
+
+input[type=text],input[type=password] {
+  width: 150%;
+  padding: 5px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}

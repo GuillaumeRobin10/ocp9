@@ -1,0 +1,22 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+<link rel="stylesheet" href="{% static 'accounts/styleregister.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="wrapperinscription">
+        <h2 >Inscrivez-vous</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="fieldWrapper">
+                    {{ field.errors }}
+                        {{ field }}
+                    </div>
+                {% endfor %}
+                <input type="submit" class="btn left" value="S'inscrire">
+            </form>
+        <a href="../home"><button class="btn right"> Retourner</button></a>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+.ticketwrapper{
+    border: 1px solid;
+    padding : 5px;
+}
+
+.date{
+    text-align: right;
+}
+.image{
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.titleticket{
+    font-weight: bold;
+}

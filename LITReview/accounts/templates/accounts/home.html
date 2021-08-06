@@ -1,0 +1,30 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+<link rel="stylesheet" href="{% static 'accounts/stylelogin.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="wrapper">
+        <div class="gauche">
+            <h2>Inscrivez-vous maintenant</h2>
+            <a href="register"><button class="btn"> s'inscrire</button></a>
+        </div>
+        <div class="droite" >
+            <h2 class="right_text">connectez-vous</h2>
+            <form method="POST" class=form>
+                {% csrf_token %}
+                <div class="champs">
+                    <input type="text" name="username" id="username" placeholder="Nom d'utilisateur" required />
+                </div>
+                <div class="champs">
+                    <input type="password" name="password" id="password" placeholder="Mot de passe" required />
+                </div>
+                <div class="right">
+                    <input type="submit" class="btn" value="Se connecter">
+                </div>
+                {{error}}
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+h3{
+    text-align: center;
+    padding: 10px;
+    margin: auto;
+}
+input[type=text]{
+  width: 98%;
+  padding: 5px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  box-sizing: border-box;
+}
+
+textarea {
+  width: 96%;
+  padding: 12px 10px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  resize: none;
+}
+.right{
+    float:right;
+    position:relative;
+    display:inline-block;
+}
+
+.containerticket{
+    border: solid;
+    padding : 60px;
+
+}
+.containercritique{
+    border: solid;
+    border-top: none;
+    padding : 60px;
+
+}
+
+.title{
+    position:relative;
+    float:left;
+    margin:-50px;
+}
+
+#id_rating li{
+    display:inline;
+    margin : 50px;
+}

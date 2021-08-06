@@ -1,0 +1,34 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+<link rel="stylesheet" href="{% static 'accounts/styleticket.css' %}">
+{% endblock %}
+{% block content %}
+<h3> Créer un ticket</h3>
+
+    <form enctype="multipart/form-data" method="POST" class=form>
+        {% csrf_token %}
+        <div class="fieldWrapper">
+            {{ formticket.title.errors }}
+            <label> Titre</label>
+            {{ formticket.title }}
+        </div>
+        <div class="fieldWrapper">
+            {{ form.description.errors }}
+            <label> Description</label>
+            {{ formticket.description }}
+        </div>
+        <div class="fieldWrapper">
+            {{ formticket.image.errors }}
+            <label>Image</label>
+            {% if ticket.image %}
+            <div class ="image">
+                <img src="{{ticket.image.url}}" />
+            </div>
+            {% endif %}
+            {{ formticket.image }}
+        </div>
+        <input type="submit" class="btn right" value="Envoyer">
+    </form>
+{% endblock %}
